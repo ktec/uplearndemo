@@ -110,13 +110,13 @@ defmodule CustomHttpClient do
 
   def request(url) do
     with {:ok, {{_, 200, _}, _headers, body}} <- get(url) do
-      {:ok, body}
+      {:ok, String.Chars.to_string(body)}
     end
   end
 
   defp get(url) do
-    :inets.start
-    :ssl.start
+    :inets.start()
+    :ssl.start()
     :httpc.request(:get, {url, []}, [], [])
   end
 end
@@ -125,8 +125,11 @@ end
 Then your custom parser can be use like this:
 
 ```
-iex> Fetch.fetch_url("http://example.com/", http_client: &CustomParser.request/1)
-%{first: "<html>"}
+iex> Fetch.fetch_url("http://erlang.org/", http_client: &CustomHttpClient.request/1)
+%Fetch.Result{
+  assets: [...],
+  links: [...]
+}
 ```
 
 

@@ -14,7 +14,7 @@ defmodule CustomHttpClient do
 
   def request(url) do
     with {:ok, {{_, 200, _}, _headers, body}} <- get(url) do
-      {:ok, body}
+      {:ok, String.Chars.to_string(body)}
     end
   end
 
