@@ -84,7 +84,7 @@ defmodule CustomParser do
 end
 ```
 
-Then your custom parser can be use like this:
+Then your custom parser can be like this:
 
 ```
 iex> Fetch.fetch_url("http://example.com/", parser: &CustomParser.parse/1)
@@ -122,7 +122,7 @@ defmodule CustomHttpClient do
 end
 ```
 
-Then your custom parser can be use like this:
+Then your custom http client can be like this:
 
 ```
 iex> Fetch.fetch_url("http://erlang.org/", http_client: &CustomHttpClient.request/1)
