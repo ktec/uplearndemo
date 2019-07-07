@@ -9,6 +9,10 @@ defmodule Fetch.RegexParserTest do
   @link_one "<a href=\"http://link1\">link one</a>"
   @link_two "<a href=\"http://link2\">link two</a>"
 
+  test "can i break the thing" do
+    assert Fetch.Result.new(nil, nil) == %Fetch.Result{assets: [], links: []}
+  end
+
   test "parses empty string" do
     result = Parser.parse("")
 
