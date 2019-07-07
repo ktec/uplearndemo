@@ -7,13 +7,15 @@ defmodule Fetch.Result do
 
   @opaque t() :: %__MODULE__{}
 
-  @enforce_keys [:assets, :links]
-  defstruct [:assets, :links]
+  defstruct assets: [],
+            links: []
 
-  def new(assets \\ [], links \\ []) do
+  def new(assets, links) when is_list(assets) and is_list(links) do
     %__MODULE__{
       assets: assets,
       links: links
     }
   end
+
+  def new(_assets, _links), do: %__MODULE__{}
 end
