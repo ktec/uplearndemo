@@ -132,6 +132,15 @@ iex> Fetch.fetch_url("http://erlang.org/", http_client: &CustomHttpClient.reques
 }
 ```
 
+## Releases
+
+This project was built using Elixir 1.9 so building a release is made super simple. The mix file contains config for a `demo` release, and to build it, simply type:
+
+```
+MIX_ENV=prod mix release
+```
+
+The resulting file can then be deployed to any unix based server architecture with no other dependencies required.
 
 ## Architecture
 
